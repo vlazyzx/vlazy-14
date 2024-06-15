@@ -10,7 +10,7 @@ module.exports = {
         });
 
         const newMessage = `API Latency: ${client.ws.ping}\nClient Ping: ${message.CreateTimestamp - interaction.CreateTimestamp}`
-        await interaction.editReplay({
+        await interaction.editReply({
             content: newMessage
         });
     }
