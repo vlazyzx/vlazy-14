@@ -5,6 +5,7 @@ const fs = require('fs');
 
 const client = new Client({ intents: GatewayIntentBits.Guilds });
 client.commands = new Collection();
+client.buttons = new Collection();
 client.commandArray = [];
 
 const functionFolders = fs.readdirSync(`./src/functions`);
@@ -17,6 +18,5 @@ for (const folder of functionFolders) {
 }
 client.handleEvents();
 client.handleCommands();
-client.login(process.env.TOKEN)
-    .then(() => console.log('Bot logged in successfully'))
-    .catch(console.error);
+client.handleComponents();
+client.login(token);
