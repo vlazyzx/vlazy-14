@@ -1,5 +1,6 @@
 require("dotenv").config();
-const { token } = process.env;
+const { token, databaseToken} = process.env;
+const { connect } = require('mongoose');
 const { Client, Collection, GatewayIntentBits } = require("discord.js");
 const fs = require("fs");
 
@@ -34,3 +35,8 @@ client.handleCommands();
 client.handleComponents();
 // Menghubungkan bot ke Discord menggunakan token yang disediakan
 client.login(token);
+(async () => {
+  await connect(databaseToken).catch(console.error);
+})();
+
+

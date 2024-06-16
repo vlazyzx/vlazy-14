@@ -15,6 +15,7 @@
     "discord-api-types": "^0.36.2",
     "discord.js": "^14.15.3",
     "dotenv": "^16.4.5",
+    "mongoose": "^8.4.1",
     "react-router": "^6.23.1",
     "rest": "^2.0.0",
     "undici": "^6.19.0"
