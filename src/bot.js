@@ -3,7 +3,7 @@ const { token } = process.env;
 const { Client, Collection, GatewayIntentBits } = require("discord.js");
 const fs = require("fs");
 
-const client = new Client({ intents: GatewayIntentBits.Guilds });
+const client = new Client({ intents: 32767 });
 // Inisialisasi variabel untuk menyimpan koleksi select menus dan array command
 client.commands = new Collection();
 client.buttons = new Collection();
