@@ -11,6 +11,7 @@
 // - Ambil menu pilihan dari objek client berdasarkan customId menu yang dipicu.
 // - Eksekusi command yang sesuai dengan menu tersebut dengan menyediakan interaction dan client sebagai parameter.
 // - Tangani error jika terjadi kesalahan saat eksekusi command menu dan log pesan error.
+const { InteractionType } = require('discord.js');
 const { execute } = require("../../commands/tools/menu");
 
 module.exports = {
@@ -51,6 +52,17 @@ module.exports = {
 
       try {
         await menuCommand.execute(interaction, client);
+      } catch (error) {
+        console.error(error);
+      }
+    } else if (interaction.type == InteractionType.ModalSubmit) {
+      const { modals } = client;
+      const { customId } = interaction;
+      const  modal = modals.get(customId);
+      if (!modal) return new Error("There is no code for this modals.");
+
+      try {
+        await modal.execute(interaction, client);
       } catch (error) {
         console.error(error);
       }

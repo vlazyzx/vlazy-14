@@ -1,5 +1,14 @@
+require("dotenv").config();
+const { token } = process.env;
+const { Client, Collection, GatewayIntentBits } = require("discord.js");
+const fs = require("fs");
+
+const client = new Client({ intents: GatewayIntentBits.Guilds });
 // Inisialisasi variabel untuk menyimpan koleksi select menus dan array command
+client.commands = new Collection();
+client.buttons = new Collection();
 client.selectMenus = new Collection();
+client.modals = new Collection();
 client.commandArray = [];
 
 // Membaca semua folder yang berisi fungsi-fungsi bot

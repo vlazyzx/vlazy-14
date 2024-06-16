@@ -14,7 +14,7 @@ module.exports = (client) => {
       );
 
       // Destructuring objects buttons dan selectMenus dari client
-      const { buttons, selectMenus } = client;
+      const { buttons, selectMenus, modals } = client;
 
       // Memproses komponen berdasarkan jenisnya (buttons atau selectMenus)
       switch (folder) {
@@ -38,6 +38,12 @@ module.exports = (client) => {
           }
           break;
           
+          case "modals":
+            for (const file of componentFiles){
+              const modal = require(`../../components/${folder}/${file}`);
+              modals.set(modal.data.name, modal);
+            }
+            break;
         default:
           break;
       }
