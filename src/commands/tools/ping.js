@@ -1,17 +1,26 @@
-const { SlashCommandBuilder } = require('discord.js');
+const { SlashCommandBuilder } = require("discord.js");
 
 module.exports = {
-    data: new SlashCommandBuilder()
-     .setName('ping')
-     .setDescription('replies with "Pong!'),
-    async execute(interaction, client) {
-        const message = await interaction.deferReply({
-            fetchReply: true
-        });
+  // Definisikan data untuk command slash 'ping'
+  data: new SlashCommandBuilder()
+    .setName("ping") // Nama command 'ping'
+    .setDescription('replies with "Pong!'), // Deskripsi command 'ping'
 
-        const newMessage = `API Latency: ${client.ws.ping}\nClient Ping: ${message.CreateTimestamp - interaction.CreateTimestamp}`
-        await interaction.editReply({
-            content: newMessage
-        });
-    }
-}
+  // Fungsi execute untuk menangani interaksi 'ping'
+  async execute(interaction, client) {
+    // Menunda balasan untuk mengambil respon
+    const message = await interaction.deferReply({
+      fetchReply: true,
+    });
+
+    // Hitung latensi API dan ping klien
+    const newMessage = `API Latency: ${client.ws.ping}\nClient Ping: ${
+      message.CreateTimestamp - interaction.CreateTimestamp
+    }`;
+
+    // Edit balasan dengan hasil perhitungan
+    await interaction.editReply({
+      content: newMessage,
+    });
+  },
+};

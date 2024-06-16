@@ -10,12 +10,13 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@discordjs/rest": "^2.3.0",
+    "@discordjs/rest": "^1.0.0",
     "chalk": "^4.1.2",
-    "discord-api-types": "^0.37.89",
+    "discord-api-types": "^0.36.2",
     "discord.js": "^14.15.3",
     "dotenv": "^16.4.5",
     "react-router": "^6.23.1",
-    "rest": "^2.0.0"
+    "rest": "^2.0.0",
+    "undici": "^6.19.0"
   }
 }
